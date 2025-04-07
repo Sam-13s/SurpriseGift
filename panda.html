@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/bubu.png" type="image/x-icon">
+    
+    <title>🎊HappyBirthday🎀</title>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Surprise</title>
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    background-color:#fdc9e3;
+    text-align: center;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #ff66b2;
+    text-shadow: 2px 2px 4px #5f0934;
+    margin-bottom: 10px;
+}
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.surprise-btn {
+    background-color: #ff66b2;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: 0.3s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.surprise-btn:hover {
+    background-color: #ff3399;
+    transform: scale(1.05);
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #ff66b2;
+    }
+
+    to {
+        box-shadow: 0 0 20px #ff3399;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.memory-item img,
+.teddy-section img,
+.gift-box img {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.memory-item img:hover,
+.teddy-section img:hover,
+.gift-box img:hover {
+    transform: scale(1.1);
+}
+
+.wishes,
+.memory-item,
+.gift-box,
+.teddy-section {
+    margin-top: 40px;
+}
+
+.memory-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    animation: fadeIn 1s ease;
+}
+
+/* Memory Item Styling */
+.memory-item {
+    background-color: #ffdddd;
+    padding: 10px;
+    margin: 8px;
+    border-radius: 12px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.memory-item:hover {
+    background-color: #ffcccc;
+}
+
+/* Image Gallery Styling */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* calender section styling */
+.calendar-section {
+    margin-top: 40px;
+}
+
+.calendar-container {
+    border: 3px solid #ff66b2;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.calendar-section h3 {
+    font-size: 1.5rem;
+    color: #ff66b2;
+    margin-bottom: 10px;
+}
+
+.special-date-card {
+    background-color: #ff66b2;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 320px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+.month-year {
+    font-size: 1.5rem;
+    color: #730c40;
+    margin-bottom: 10px;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.day {
+    padding: 10px;
+    background-color: #ffe6f2;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ff66b2;
+    transition: background-color 0.3s;
+    box-sizing: border-box;
+}
+
+.day.heart {
+    background-color: #ff66b2;
+    color: white;
+    position: relative;
+    font-weight: bold;
+    border: 2px solid #ff3399;
+    border-radius: 8px;
+}
+
+.day.heart::after {
+            content: '❤️';
+            position: absolute;
+            top: -14px;
+            right: 4px;
+            font-size: 1.2rem;
+        }
+
+        .day.heart {
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+
+/* card-container styling  */
+.card-container {
+    display: none;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.card-container.show {
+    display: flex;
+}
+
+.card {
+    background-color: #f99ecb;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 45%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+}
+
+ /* Friend gallery styling */
+ .friend-gallery-container {
+    overflow: hidden;
+}
+
+.friend-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.friend-gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.friend-gallery img:hover {
+    transform: scale(1.1);
+}
+
+
+.video-gallery {
+    display: none;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.video-gallery iframe {
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+
+
+/* Lightbox Styling */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lightbox img,
+.lightbox video {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+
+/* Video Gallery Styling */
+.video-gallery-section {
+    margin-top: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.video-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.video-gallery video {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.video-gallery video:hover {
+    transform: scale(1.1);
+}
+
+
+/* Emoji Confetti */
+.confetti-emoji {
+    position: fixed;
+    top: -50px;
+    font-size: 1.5rem;
+    opacity: 0;
+    animation: fall 2.5s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        <h1>🎊HappyBirthday🎀 </h1>
+        <img src="birthdaycake.webp" alt="" width="200px" height="200px"><br><br>
+        <button class="surprise-btn" onclick="showSurprise()">Click for Surprise🎁!</button>
+        <br><br>
+
+        <!-- Memory Items for Images -->
+        <div class="memory-item">🌸 Enjoy Life !</div>
+        <div class="memory-item">😜 Chill Out !</div>
+
+        <!-- Memory Items for Videos -->
+        <div class="memory-item">😍 Accept Yourself !</div>
+        <div class="memory-item">🪄 Explore Magic !</div>
+
+    </div>
+
+    <!-- Wishes Section -->
+    <div class="wishes hidden">
+        <h1>🎊HappyBirthday🎀 </h1>
+        <h1>❤️ MISBA! 🖤 </h1>
+        <h2>Wishing you a day filled with love💕, joy, and laughter😁!</h2>
+        <button class="surprise-btn" onclick="showSurprise()">ClickMe🐼!</button>
+    </div>
+    <!-- Memory Section -->
+    <div class="memory-section hidden">
+        <h3>🥰 It's Me..!Meszz 👻</h3>
+
+        <!-- Memory Items for Images -->
+        <div class="memory-item">🌸 Plan Trip!</div>
+        <div class="memory-item">😜 Crezyness !</div>
+
+        <!-- Memory Items for Videos -->
+        <div class="memory-item">🎶 Fun Together!</div>
+        <div class="memory-item">✨ Hicking Together!</div>
+
+        <!-- Image Gallery -->
+        <div class="gallery">
+            <img src="m.jpg" onclick="openLightbox('m.jpg', 'image')" />
+            <img src="m1.jpg" onclick="openLightbox('m1.jpg', 'image')" />
+            <img src="m2.jpg" onclick="openLightbox('m2.jpg', 'image')" />
+            <img src="m3.jpg" onclick="openLightbox('m3.jpg', 'image')" />
+            <img src="m4.png" onclick="openLightbox('m4.png', 'image')" />
+            <img src="m5.png" onclick="openLightbox('m5.png', 'image')" />
+        </div>
+    </div>
+
+    <!-- Lightbox (For Both Images and Videos) -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" />
+        <video id="lightbox-video" controls>
+            <source src="" type="video/mp4">
+
+        </video>
+    </div>
+
+
+
+
+    <div class="card-container">
+        <div class="card">
+            <!-- Calendar Section -->
+            <div class="calendar-section hidden">
+                <div class="special-date-card">Your Special Date: 12 April 2003 ❤️</div>
+                <div class="month-year">April 2003</div>
+                <div class="calendar">
+                    <script>
+                        const calendar = document.querySelector('.calendar');
+                        const birthdayDate = 12;
+                        const birthMonthDays = 30;
+                        for (let day = 1; day <= birthMonthDays; day++) {
+                            const dayElement = document.createElement('div');
+                            dayElement.classList.add('day');
+                            dayElement.textContent = day;
+                            if (day === birthdayDate) {
+                                dayElement.classList.add('heart');
+                            }
+                            calendar.appendChild(dayElement);
+                        }
+                    </script>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="card">
+            <h3>🎥 Memories We Shared ✨</h3>
+            <div class="friend-gallery-container">
+                <div class="friend-gallery">
+                    <img src="ms.jpg" onclick="openLightbox('ms.jpg', 'image')">
+                    <img src="ms1.jpg" onclick="openLightbox('ms1.jpg', 'image')">
+                    <img src="ms2.jpg" onclick="openLightbox('ms2.jpg', 'image')">
+                    <img src="ms3.jpg" onclick="openLightbox('ms3.jpg', 'image')">
+                    <img src="ms4.jpg" onclick="openLightbox('ms4.jpg', 'image')">
+                    <img src="ms5.jpg" onclick="openLightbox('ms5.jpg', 'image')">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Floating Teddy and Panda Section -->
+    <div class="teddy-section hidden">
+        <h2>Your Cute Friends</h2>
+        <img src="bubu-dudu1.gif" alt="Teddy Bear">
+        <img src="bubu-dudu2.gif" alt="Panda">
+        <img src="bubududu.gif" alt="">
+        <img src="bubududu1.gif" alt="">
+        <img src="bubu-dudu3.gif" alt="Panda">
+        <img src="bubu-dudu.gif" alt="">
+
+    </div>
+
+    <!-- Video Gallery Section -->
+    <div class="video-gallery-section hidden">
+        <h3>🎬 Special Moments Captured 🎬</h3>
+        <div class="video-gallery">
+            <video src="m1vedio.mp4" onclick="openLightbox('vedio1.mp4', 'video')" poster="ms.jpg"
+                controls></video>
+            <video src="m2vedio.mp4" onclick="openLightbox('vedio2.mp4', 'video')" poster="ms3.jpg"
+                controls></video>
+        </div>
+    </div>
+
+    <audio id="birthday-music" src="music.mp3"></audio>
+
+    <script>
+        // Create emoji confetti
+        function createConfetti() {
+            const emojis = ["🎉", "🎈", "😍", "🥂", "💕", "😁", "👻", "🎂", "🖤", "🎁",
+                "🧸", "❤️", "🌸", "🍫", "🌟", "🍁", "🐼"];
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-emoji');
+                confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                confetti.style.left = Math.random() * window.innerWidth + 'px';
+                confetti.style.animationDuration = Math.random() * 14 + 4 + 's';
+                document.body.appendChild(confetti);
+                confetti.addEventListener('animationend', () => confetti.remove());
+            }
+        }
+
+        function showSurprise() {
+            createConfetti();
+            document.getElementById('container').classList.add('hidden'); // Hides the container
+            document.querySelector('.surprise-btn').classList.add('hidden');
+            document.querySelector('.wishes').classList.remove('hidden');
+            document.querySelector('.memory-section').classList.remove('hidden');
+            document.querySelector('.calendar-section').classList.remove('hidden');
+            document.querySelector('.teddy-section').classList.remove('hidden');
+            document.querySelector('.card-container').classList.add('show');
+            document.querySelector('.video-gallery-section').classList.remove('hidden');
+            const music = document.getElementById('birthday-music');
+            music.play();
+        }
+
+        // Restart the surprise
+        function restartSurprise() {
+            createConfetti();
+            document.getElementById('birthday-music').play();
+        }
+
+        function openLightbox(src, type) {
+            const img = document.getElementById('lightbox-img');
+            const video = document.getElementById('lightbox-video');
+            const lightbox = document.getElementById('lightbox');
+
+            if (type === 'image') {
+                img.src = src;
+                img.style.display = 'block';
+                video.style.display = 'none';
+            } else if (type === 'video') {
+                video.src = src;
+                video.style.display = 'block';
+                img.style.display = 'none';
+            }
+
+            lightbox.style.display = 'flex';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.getElementById('lightbox-video').pause();
+        }
+    </script>
+</body>
+
+</html>
