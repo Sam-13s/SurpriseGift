@@ -25,9 +25,10 @@
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 4rem;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     color: #ff66b2;
-    text-shadow: 2px 2px 4px #5f0934;
+    text-shadow: 2px 2px 4px #2b0418;
     margin-bottom: 10px;
 }
 
@@ -401,6 +402,101 @@ h1 {
         opacity: 0;
     }
 }
+
+
+
+
+
+
+
+@media (max-width: 1024px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        max-width: 100%;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(7, 1fr);
+        max-width: 100%;
+    }
+
+    .calendar-section h3,
+    .month-year {
+        font-size: 1.2rem;
+    }
+
+    .gallery img,
+    .friend-gallery img,
+    .video-gallery video {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .surprise-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+
+    .memory-item img,
+    .teddy-section img,
+    .gift-box img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .gallery,
+    .friend-gallery,
+    .video-gallery {
+        gap: 6px;
+    }
+
+    .lightbox img,
+    .lightbox video {
+        max-width: 95%;
+        max-height: 80%;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        max-width: 97%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1, h2, h3 {
+        font-size: 1.2rem;
+    }
+
+    .surprise-btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .gallery img,
+    .friend-gallery img,
+    .video-gallery video {
+        width: 80px;
+        height: 80px;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
     </style>
 </head>
 
